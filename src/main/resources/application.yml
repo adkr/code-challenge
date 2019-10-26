@@ -1,1 +1,5 @@
-
+message:
+  validation:
+    len:
+      min: 3
+      max: 140

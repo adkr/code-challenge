@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.api;
+package pl.adkr.hsbc.challenge;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
