@@ -1,7 +1,7 @@
-package pl.adkr.hsbc.challenge.post.domain;
+package pl.adkr.hsbc.challenge.posting.domain.post;
 
 import org.springframework.stereotype.Component;
-import pl.adkr.hsbc.challenge.post.entity.PostEntity;
+import pl.adkr.hsbc.challenge.posting.entity.post.PostEntity;
 
 import java.util.Optional;
 

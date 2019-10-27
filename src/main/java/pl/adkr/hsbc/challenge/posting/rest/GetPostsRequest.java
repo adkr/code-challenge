@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.post;
+package pl.adkr.hsbc.challenge.posting.rest;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GetPostsRequest {
+class GetPostsRequest {
 
     @NotNull
     private Long userId;

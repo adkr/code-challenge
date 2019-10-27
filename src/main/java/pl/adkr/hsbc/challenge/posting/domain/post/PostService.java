@@ -1,10 +1,10 @@
-package pl.adkr.hsbc.challenge.post.domain;
+package pl.adkr.hsbc.challenge.posting.domain.post;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.adkr.hsbc.challenge.post.entity.PostEntity;
-import pl.adkr.hsbc.challenge.post.entity.PostEntityConverter;
-import pl.adkr.hsbc.challenge.post.entity.PostRepository;
+import pl.adkr.hsbc.challenge.posting.entity.post.PostEntity;
+import pl.adkr.hsbc.challenge.posting.entity.post.PostEntityConverter;
+import pl.adkr.hsbc.challenge.posting.entity.post.PostRepository;
 
 import java.util.Collection;
 import java.util.List;

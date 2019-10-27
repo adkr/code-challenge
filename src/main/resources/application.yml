@@ -1,3 +1,16 @@
+logging:
+  level:
+    root: DEBUG
+    pl.adkr.hsbc.challenge: DEBUG
+    org.springframework: INFO
+    org.hibernate: ERROR
+    org.apache: INFO
+    sun.rmi: INFO
+    io.springfox: INFO
+    springfox: INFO
+    com.zaxxer : INFO
+
+
 message:
   validation:
     len:

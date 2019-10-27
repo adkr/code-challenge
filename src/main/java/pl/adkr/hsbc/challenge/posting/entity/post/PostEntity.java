@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.post.entity;
+package pl.adkr.hsbc.challenge.posting.entity.post;
 
 import lombok.Builder;
 import lombok.Data;

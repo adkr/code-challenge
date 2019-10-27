@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.post;
+package pl.adkr.hsbc.challenge.posting.rest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import pl.adkr.hsbc.challenge.post.domain.Post;
-import pl.adkr.hsbc.challenge.post.domain.PostService;
+import pl.adkr.hsbc.challenge.posting.domain.post.Post;
+import pl.adkr.hsbc.challenge.posting.domain.post.PostService;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -20,9 +20,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/message")
 @Slf4j
-public class PostRestController {
+public class PostRestController implements PostRestValidationExceptionHandler {
+    // TODO consider smaller, more specialized interfaces per posting and retrieving?
 
-    private static final String USER_ID = "userId";
     private static final String POST_ID = "postId";
 
     private final PostService postService;
@@ -35,6 +35,7 @@ public class PostRestController {
     @PutMapping(path = "/")
     @ResponseBody
     public ResponseEntity<Post> submitPost(@RequestBody @Valid SubmitPostRequest req) {
+        log.info("Calling submitPost {}", req);
         Optional<Post> savedMessage = postService.storePost(req.getMessage(), req.getUserId());
         return savedMessage
                 .map(post -> ResponseEntity
@@ -49,7 +50,7 @@ public class PostRestController {
     public ResponseEntity<List<Post>> getPosts(@RequestBody @Valid GetPostsRequest req) {
         List<Post> postsForUser = postService.getPostsForUser(req.getUserId());
         return ResponseEntity
-                .status(HttpStatus.OK)
+                .status(postsForUser.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK)
                 .body(postsForUser);
     }
 
@@ -65,8 +66,7 @@ public class PostRestController {
                         .body(null));
     }
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @Override
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors()
@@ -77,5 +77,4 @@ public class PostRestController {
                 });
         return errors;
     }
-
 }
