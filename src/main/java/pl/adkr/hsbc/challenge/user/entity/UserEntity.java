@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@Data
 @Builder
+@Data
 @Entity
 public class UserEntity implements Serializable {
 

@@ -1,0 +1,12 @@
+PUT http://localhost:8080/api/v1/message/
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "userId": 123,
+  "message": "Test content"
+}
+
+###
+

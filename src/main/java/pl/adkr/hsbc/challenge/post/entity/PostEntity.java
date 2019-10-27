@@ -13,9 +13,9 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@Builder
 @Entity
 @Data
-@Builder
 public class PostEntity implements Serializable {
 
     @Value("${message.validation.len.min}")
