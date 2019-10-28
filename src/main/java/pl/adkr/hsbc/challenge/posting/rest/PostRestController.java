@@ -32,7 +32,9 @@ public class PostRestController implements PostRestValidationExceptionHandler {
         this.postService = postService;
     }
 
-    @PutMapping(path = "/")
+    @PutMapping(path = "/",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<Post> submitPost(@RequestBody @Valid SubmitPostRequest req) {
         log.info("Calling submitPost {}", req);
@@ -46,7 +48,9 @@ public class PostRestController implements PostRestValidationExceptionHandler {
                 .orElseThrow(RuntimeException::new);
     }
 
-    @GetMapping(path = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/",
+            produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Post>> getPosts(@RequestBody @Valid GetPostsRequest req) {
         List<Post> postsForUser = postService.getPostsForUser(req.getUserId());
         return ResponseEntity
@@ -54,7 +58,8 @@ public class PostRestController implements PostRestValidationExceptionHandler {
                 .body(postsForUser);
     }
 
-    @GetMapping(path = "/{" + POST_ID + "}")
+    @GetMapping(path = "/{" + POST_ID + "}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Post> getPost(@PathVariable(POST_ID) Long postId) {
         Optional<Post> post = postService.getPost(postId);
         return post
