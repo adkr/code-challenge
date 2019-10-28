@@ -69,7 +69,7 @@ public class PostRestControllerTest {
     }
 
     @Test
-    public void shouldNotAcceptMediaType() throws Exception {
+    public void shouldNotAcceptMediaTypeDifferentThanJson() throws Exception {
         //when
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders
                 .get("/api/v1/message/{id}", 1)

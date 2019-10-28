@@ -52,6 +52,7 @@ public class PostRestController implements PostRestValidationExceptionHandler {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Post>> getPosts(@RequestBody @Valid GetPostsRequest req) {
+        //FIXME add pagination
         List<Post> postsForUser = postService.getPostsForUser(req.getUserId());
         return ResponseEntity
                 .status(postsForUser.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK)

@@ -36,6 +36,7 @@ public class PostEntity implements Serializable {
     private Long userId;
 
     @Size(min = MSG_MIN_LEN, max = MSG_MAX_LEN, message = "Message content must be between " + MSG_MIN_LEN + " and " + MSG_MAX_LEN + " characters.")
+    @NotNull
     @NonNull
     private String message;
 
