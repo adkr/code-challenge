@@ -13,8 +13,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-@Builder
-@AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
@@ -33,12 +32,19 @@ public class PostEntity implements Serializable {
     private Long id;
 
     @NotNull
+    @NonNull
     private Long userId;
 
     @Size(min = MSG_MIN_LEN, max = MSG_MAX_LEN, message = "Message content must be between " + MSG_MIN_LEN + " and " + MSG_MAX_LEN + " characters.")
+    @NonNull
     private String message;
 
     @NotNull
-    private LocalDateTime createDateTime;
+    private LocalDateTime createDateTime = LocalDateTime.now();
 
+    public PostEntity(Long userId, String message, LocalDateTime createDateTime) {
+        this.userId = userId;
+        this.message = message;
+        this.createDateTime = createDateTime;
+    }
 }

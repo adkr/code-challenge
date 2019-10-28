@@ -34,7 +34,7 @@ public class PostService implements PostProvider, PostStore {
 
     @Override
     public List<Post> getPostsForUser(Long userId) {
-        Collection<PostEntity> postEntities = postRepository.findAllByUserId(userId);
+        Collection<PostEntity> postEntities = postRepository.findAllByUserIdOrderByCreateDateTimeDesc(userId);
         return postEntities
                 .stream()
                 .map(postConverter::toPost)

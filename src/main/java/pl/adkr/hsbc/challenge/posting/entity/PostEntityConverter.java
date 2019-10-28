@@ -8,6 +8,6 @@ import java.time.LocalDateTime;
 public class PostEntityConverter {
 
     public PostEntity toPostEntity(String message, Long userId, LocalDateTime dateTime) {
-        return PostEntity.builder().message(message).userId(userId).createDateTime(dateTime).build();
+        return new PostEntity(userId, message, dateTime);
     }
 }
