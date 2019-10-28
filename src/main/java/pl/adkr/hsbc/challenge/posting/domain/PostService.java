@@ -1,11 +1,12 @@
-package pl.adkr.hsbc.challenge.posting.domain.post;
+package pl.adkr.hsbc.challenge.posting.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.adkr.hsbc.challenge.posting.entity.post.PostEntity;
-import pl.adkr.hsbc.challenge.posting.entity.post.PostEntityConverter;
-import pl.adkr.hsbc.challenge.posting.entity.post.PostRepository;
+import pl.adkr.hsbc.challenge.posting.entity.PostEntity;
+import pl.adkr.hsbc.challenge.posting.entity.PostEntityConverter;
+import pl.adkr.hsbc.challenge.posting.entity.PostRepository;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -43,7 +44,7 @@ public class PostService implements PostProvider, PostStore {
 
     @Override
     public Optional<Post> storePost(String message, Long userId) {
-        PostEntity savedPost = postRepository.save(postEntityConverter.toPostEntity(message, userId));
+        PostEntity savedPost = postRepository.save(postEntityConverter.toPostEntity(message, userId, LocalDateTime.now()));
         return postConverter.toPost(savedPost);
     }
 }

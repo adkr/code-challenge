@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.posting.domain.post;
+package pl.adkr.hsbc.challenge.posting.domain;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,6 @@
-package pl.adkr.hsbc.challenge.posting.entity.post;
+package pl.adkr.hsbc.challenge.posting.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.Entity;
@@ -13,9 +12,14 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Builder
 @Entity
-@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
+@EqualsAndHashCode
 public class PostEntity implements Serializable {
 
     @Value("${message.validation.len.min}")

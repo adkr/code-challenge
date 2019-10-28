@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.posting;
+package pl.adkr.hsbc.challenge.posting.rest;
 
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
@@ -11,9 +11,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import pl.adkr.hsbc.challenge.posting.domain.post.Post;
-import pl.adkr.hsbc.challenge.posting.domain.post.PostService;
-import pl.adkr.hsbc.challenge.posting.rest.PostRestController;
+import pl.adkr.hsbc.challenge.posting.domain.Post;
+import pl.adkr.hsbc.challenge.posting.domain.PostService;
 
 import java.util.Optional;
 

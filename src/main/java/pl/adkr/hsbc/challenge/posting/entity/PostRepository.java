@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.posting.entity.post;
+package pl.adkr.hsbc.challenge.posting.entity;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;

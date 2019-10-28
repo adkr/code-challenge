@@ -1,7 +1,6 @@
 package pl.adkr.hsbc.challenge.user.entity;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.Entity;
@@ -11,9 +10,14 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-@Builder
-@Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
+@ToString
+@EqualsAndHashCode
 public class UserEntity implements Serializable {
 
     @Value("${user.validation.len.min}")

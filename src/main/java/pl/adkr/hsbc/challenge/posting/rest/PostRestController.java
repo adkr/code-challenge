@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import pl.adkr.hsbc.challenge.posting.domain.post.Post;
-import pl.adkr.hsbc.challenge.posting.domain.post.PostService;
+import pl.adkr.hsbc.challenge.posting.domain.Post;
+import pl.adkr.hsbc.challenge.posting.domain.PostService;
 
 import javax.validation.Valid;
 import java.util.HashMap;
