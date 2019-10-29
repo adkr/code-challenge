@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class FollowingersEntityId implements Serializable {
+public class FollowingerEntityId implements Serializable {
 
     private Long followerId;
 

@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Set;
 
 @Transactional(readOnly = true)
-public interface FollowingersRepository extends CrudRepository<FollowingersEntity, FollowingersEntityId> {
+public interface FollowingerRepository extends CrudRepository<FollowingerEntity, FollowingerEntityId> {
 
-    Set<FollowingersEntity> findAllByIdFollowerId(Long followerId);
+    Set<FollowingerEntity> findAllByIdFollowerId(Long followerId);
 
-    Set<FollowingersEntity> findAllByIdFollowingId(Long followingId);
+    Set<FollowingerEntity> findAllByIdFollowingId(Long followingId);
 }

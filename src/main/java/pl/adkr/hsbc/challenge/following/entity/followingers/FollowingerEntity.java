@@ -13,12 +13,12 @@ import java.io.Serializable;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class FollowingersEntity implements Serializable {
+public class FollowingerEntity implements Serializable {
 
     //TODO same approach in terms of TAGS in posts - many to many... Skipping so far
 
     @EmbeddedId
-    private FollowingersEntityId id = new FollowingersEntityId();
+    private FollowingerEntityId id = new FollowingerEntityId();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("followerId")

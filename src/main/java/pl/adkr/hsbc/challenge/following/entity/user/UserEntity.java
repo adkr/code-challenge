@@ -1,7 +1,7 @@
 package pl.adkr.hsbc.challenge.following.entity.user;
 
 import lombok.*;
-import pl.adkr.hsbc.challenge.following.entity.followingers.FollowingersEntity;
+import pl.adkr.hsbc.challenge.following.entity.followingers.FollowingerEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -32,13 +32,13 @@ public class UserEntity implements Serializable {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<FollowingersEntity> following = new ArrayList<>();
+    private List<FollowingerEntity> following = new ArrayList<>();
 
     @OneToMany(
             mappedBy = "following",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<FollowingersEntity> followers = new ArrayList<>();
+    private List<FollowingerEntity> followers = new ArrayList<>();
 
 }

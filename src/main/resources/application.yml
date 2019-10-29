@@ -3,7 +3,7 @@ logging:
     root: DEBUG
     pl.adkr.hsbc.challenge: DEBUG
     org.springframework: INFO
-    org.hibernate: ERROR
+    org.hibernate: DEBUG
     org.apache: INFO
     sun.rmi: INFO
     io.springfox: INFO
