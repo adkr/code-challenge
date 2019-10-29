@@ -1,5 +1,9 @@
 package pl.adkr.hsbc.challenge.posting.rest;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +24,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/message")
 @Slf4j
+@Api(value = "Post management")
 public class PostingRestController implements PostingRestValidationExceptionHandler {
     // TODO consider smaller, more specialized interfaces per posting and retrieving?
 
@@ -36,6 +41,7 @@ public class PostingRestController implements PostingRestValidationExceptionHand
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ApiOperation(value = "Submit a post")
     public ResponseEntity<Post> submitPost(@RequestBody @Valid SubmitPostRequest req) {
         log.info("Calling submitPost {}", req);
         Optional<Post> savedMessage = postService.storePost(req.getMessage(), req.getUserId());
@@ -51,6 +57,11 @@ public class PostingRestController implements PostingRestValidationExceptionHand
     @GetMapping(path = "/",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get a list of posts ordered in reverse chronological order")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved a list of posts"),
+            @ApiResponse(code = 404, message = "Post not found")
+    })
     public ResponseEntity<List<Post>> getPosts(@RequestBody @Valid GetPostsRequest req) {
         //FIXME add pagination
         List<Post> postsForUser = postService.getPostsForUser(req.getUserId());
@@ -61,6 +72,11 @@ public class PostingRestController implements PostingRestValidationExceptionHand
 
     @GetMapping(path = "/{" + POST_ID + "}",
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Get a post by id")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully retrieved post"),
+            @ApiResponse(code = 404, message = "Post not found")
+    })
     public ResponseEntity<Post> getPost(@PathVariable(POST_ID) Long postId) {
         Optional<Post> post = postService.getPost(postId);
         return post
