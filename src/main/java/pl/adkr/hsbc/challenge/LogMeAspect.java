@@ -24,7 +24,7 @@ public class LogMeAspect {
     }
 
     @Pointcut("within(pl.adkr.hsbc.challenge.posting..*)" +
-            " || within(pl.adkr.hsbc.challenge.user..*)")
+            " || within(pl.adkr.hsbc.challenge.following..*)")
     public void applicationPackagePointcut() {
     }
 

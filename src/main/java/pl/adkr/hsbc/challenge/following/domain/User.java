@@ -1,4 +1,4 @@
-package pl.adkr.hsbc.challenge.user.domain;
+package pl.adkr.hsbc.challenge.following.domain;
 
 import lombok.Builder;
 import lombok.Value;
