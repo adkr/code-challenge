@@ -20,7 +20,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/message")
 @Slf4j
-public class PostRestController implements PostRestValidationExceptionHandler {
+public class PostingRestController implements PostingRestValidationExceptionHandler {
     // TODO consider smaller, more specialized interfaces per posting and retrieving?
 
     private static final String POST_ID = "postId";
@@ -28,7 +28,7 @@ public class PostRestController implements PostRestValidationExceptionHandler {
     private final PostService postService;
 
     @Autowired
-    public PostRestController(PostService postService) {
+    public PostingRestController(PostService postService) {
         this.postService = postService;
     }
 

@@ -21,8 +21,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 
-@WebMvcTest(PostRestController.class)
-public class PostRestControllerTest {
+@WebMvcTest(PostingRestController.class)
+public class PostingRestControllerTest {
 
     @Autowired
     private MockMvc mvc;
