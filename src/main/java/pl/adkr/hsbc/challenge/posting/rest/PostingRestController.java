@@ -4,7 +4,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,7 +22,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/message")
-@Slf4j
 @Api(value = "Post management")
 public class PostingRestController implements PostingRestValidationExceptionHandler {
     // TODO consider smaller, more specialized interfaces per posting and retrieving?
@@ -43,7 +41,6 @@ public class PostingRestController implements PostingRestValidationExceptionHand
     @ResponseBody
     @ApiOperation(value = "Submit a post")
     public ResponseEntity<Post> submitPost(@RequestBody @Valid SubmitPostRequest req) {
-        log.info("Calling submitPost {}", req);
         Optional<Post> savedMessage = postService.storePost(req.getMessage(), req.getUserId());
         return savedMessage
                 .map(post -> ResponseEntity

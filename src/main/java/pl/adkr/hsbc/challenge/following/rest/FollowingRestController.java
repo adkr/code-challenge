@@ -41,7 +41,6 @@ public class FollowingRestController {
         throw new UnsupportedOperationException("Implement me");
     }
 
-
     @GetMapping("/{" + USER_ID + "}/follow/")
     @ApiOperation(value = "Get a set of following users")
     public ResponseEntity<Set<User>> getFollowing(@PathVariable(USER_ID) Long userId) {
