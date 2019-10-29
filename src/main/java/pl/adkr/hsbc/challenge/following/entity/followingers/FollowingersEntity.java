@@ -18,7 +18,7 @@ public class FollowingersEntity implements Serializable {
     //TODO same approach in terms of TAGS in posts - many to many... Skipping so far
 
     @EmbeddedId
-    private FollowingersEntityId id;
+    private FollowingersEntityId id = new FollowingersEntityId();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("followerId")
