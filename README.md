@@ -10,8 +10,18 @@
    * entity - stores persistence model and data-access operations
    * domain - stores domain objects and related business logic. Layer domain and entity are not expected to fit 1:1. For example domain User class have no direct mapping on entity layer. Transformation responsibility lies on service side.
    * config - beans definition and app connfigurations. 
-5. Converters provides functionality to map between layers. Each layer expected to "talk" only with one above and one below.
+   * service - can be considered to be added but I would keep logic close to related classes to achieve separation on functionality/object level (user, post, wall, others) not responsibility (dao, service, dto, etc). Thanks to that approach I would expect code should be less coupled and separation will be more visible from packages perspective.
+5. Converters provides functionality to map between layers. Each layer is expected to "talk" only with one above and one below.
 
+Ideal solution may have:
+* Features deployed separately as microservices
+* ActiveMQ - communication between features
+* Spring security and OpenID for authentication
+* Docker images for each microservice
+* Liquibase - for database schema changes tracking
+* Consider MongoDB documents instead of SQL DB. At least for posts storage or other heavily accessing parts of data.
+
+Unfortunately due to lack of time I didn't have an occasion to realize all my ideas.
 
 ## Objective
 
