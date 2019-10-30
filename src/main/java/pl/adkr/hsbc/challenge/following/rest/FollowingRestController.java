@@ -50,7 +50,7 @@ public class FollowingRestController {
 
     @GetMapping("/follow/{" + USER_ID +"}")
     @ApiOperation(value = "Get a set of followers")
-    public ResponseEntity<String> getFollowers(@PathVariable(USER_ID) Long userId) {
+    public ResponseEntity<Set<User>> getFollowers(@PathVariable(USER_ID) Long userId) {
         userService.getFollowers(userId);
         throw new UnsupportedOperationException("Implement me");
     }
